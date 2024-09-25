@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { fetchMovies } from "../../services/getMovies";
 
 export default function MySwiperComponent() {
@@ -33,7 +33,8 @@ export default function MySwiperComponent() {
     <div className="h-2/6 m-8  ">
       <Swiper
         navigation={true}
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
+        loop={true}
         className="swiper w-full h-2/6 "
       >
         {movies.map((movie) => (

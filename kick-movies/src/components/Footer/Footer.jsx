@@ -7,7 +7,9 @@ function Footer() {
     <div className="text-white  bg-gray-600 flex justify-center items-center flex-col  w-full h-2/5 p-8 ">
       <div>
         <Link to="/">
-          <h2 className="hover:text-gray-400">Kick Movies</h2>
+          <h2 className="hover:text-gray-400 font-bold text-lg mb-4">
+            Kick Movies
+          </h2>
         </Link>
       </div>
       <div>
