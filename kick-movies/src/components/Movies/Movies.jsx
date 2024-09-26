@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../../services/getMovies";
 import { Link } from "react-router-dom";
+import MovieCard from "../movieCard/MovieCard";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -27,27 +28,26 @@ function Movies() {
         Loading...
       </p>
     );
-  if (error) return <p>{error}</p>;
+  if (error)
+    return (
+      <p className="flex justify-center items-center w-full h-screen">
+        {error}
+      </p>
+    );
 
   return (
     <>
-      <div className="movie-list my-8  ">
-        <div className="flex  justify-start flex-wrap items-center  flex-row gap-8">
+      <div className="movie-list my-8 w-full py-8 flex flex-col items-center">
+        <div className="py-8">
+          <h1 className="text-2xl md:text-4xl font-bold text-center">Movies</h1>
+        </div>
+        <div className="w-full px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
           {movies.map((movie) => (
-            <Link key={movie.id} to={`${movie.id}`}>
-              <div className="transform transition-transform duration-300 hover:scale-105 focus:scale-105 shadow-lg w-56 h-96 border rounded-lg p-4">
-                <img
-                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                  alt=""
-                />
-                <h2 className="font-semibold">{movie.title}</h2>
-                <p>Release Date: {movie.release_date}</p>
-                <p>Rating: {movie.vote_average}</p>
-              </div>
-            </Link>
+            <MovieCard to={`${movie.id}`} key={movie.id} movie={movie} />
           ))}
         </div>
       </div>
+      ;
     </>
   );
 }

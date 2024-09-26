@@ -39,12 +39,12 @@ function NavBar() {
           </li>
           <li>
             <NavLink
-              to="/drama"
+              to="/tvShows"
               className={({ isActive }) =>
                 ` ${isActive ? "text-black" : "text-white"} hover:text-black `
               }
             >
-              drama
+              Tv Shows
             </NavLink>
           </li>
           <li>

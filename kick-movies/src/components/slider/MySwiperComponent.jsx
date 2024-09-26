@@ -7,48 +7,61 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import { fetchMovies } from "../../services/getMovies";
 
 export default function MySwiperComponent() {
-  const [movies, setMovies] = useState([]);
+  const [slider, setslider] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getMovies = async () => {
+    const getslider = async () => {
       try {
-        const moviesData = await fetchMovies();
-        setMovies(moviesData);
+        const sliderData = await fetchMovies();
+        setslider(sliderData);
       } catch (err) {
-        setError("Failed to fetch movies");
+        setError("Failed to fetch slider");
       } finally {
         setLoading(false);
       }
     };
-    getMovies();
+    getslider();
   }, []);
 
+  if (loading)
+    return (
+      <p className="flex justify-center items-center w-full h-screen">
+        Loading...
+      </p>
+    );
+  if (error)
+    return (
+      <p className="flex justify-center items-center w-full h-screen">
+        {error}
+      </p>
+    );
+
   return (
-    <div className="h-2/6 m-8  ">
+    <div className=" h-2/6 m-8 ">
       <Swiper
         navigation={true}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation]}
         loop={true}
         className="swiper w-full h-2/6 "
       >
-        {movies.map((movie) => (
+        {slider.map((slide) => (
           <SwiperSlide
-            key={movie.id}
+            key={slide.id}
             className="swiper-slide flex justify-center items-center text-lg"
           >
             <img
-              src={`https://image.tmdb.org/t/p/w780/${movie.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w780/${slide.backdrop_path}`}
               alt="Slide"
               className="h-2/6  m-auto  object-fill"
             />
-            <h2 className="flex justify-center items-center flex-col">
-              {movie.original_title}
+            <h2 className="flex justify-center items-center flex-col font-bold text-2xl">
+              {slide.original_title}
             </h2>
           </SwiperSlide>
         ))}

@@ -47,9 +47,8 @@ const MovieDetails = () => {
         </p>
 
         <h3 className="text-lg text-gray-600 mt-2">
-          <span className="font-semibold">Runtime : </span>{" "}
-          {movieDetils.runtime}
-          minutes
+          <span className="font-semibold">Runtime : </span>
+          {movieDetils.runtime} minutes
         </h3>
 
         <h3 className="text-lg text-gray-600 mt-2">
