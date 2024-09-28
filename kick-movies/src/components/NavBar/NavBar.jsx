@@ -9,7 +9,7 @@ function NavBar() {
         <Link to="/" className="flex items-center">
           <img
             className="w-14 h-12 rounded-lg"
-            src="src/assets/Kick.png"
+            src="src/assets/Kick.svg"
             alt="logo"
           />
         </Link>
@@ -45,16 +45,6 @@ function NavBar() {
               }
             >
               Tv Shows
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                ` ${isActive ? "text-black" : "text-white"} hover:text-black `
-              }
-            >
-              about us
             </NavLink>
           </li>
         </ul>
