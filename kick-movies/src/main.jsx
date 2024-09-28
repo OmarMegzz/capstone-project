@@ -12,9 +12,8 @@ import Movies from "./components/Movies/Movies.jsx";
 import Home from "./components/Home/Home.jsx";
 import AboutUs from "./components/About/AboutUs.jsx";
 import MovieDetails from "./components/movieDetails/MovieDetails.jsx";
-import { register } from "swiper/element/bundle";
 import TvSHows from "./components/tvShows/TvSHows.jsx";
-register();
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>

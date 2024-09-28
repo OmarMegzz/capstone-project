@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../../services/getMovies";
 import { Link } from "react-router-dom";
 import MovieCard from "../movieCard/MovieCard";
+import UseTitle from "../useTitle/UseTitle";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -47,7 +48,6 @@ function Movies() {
           ))}
         </div>
       </div>
-      ;
     </>
   );
 }

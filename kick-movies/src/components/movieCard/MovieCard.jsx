@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function MovieCard({ movie, to }) {
+const MovieCard = ({ movie, to }) => {
   return (
     <Link key={movie.id} to={to}>
       <div className="transform transition-transform duration-300 hover:scale-105 focus:scale-105 shadow-lg w-56 h-full border rounded-lg p-4">
@@ -15,6 +15,6 @@ function MovieCard({ movie, to }) {
       </div>
     </Link>
   );
-}
+};
 
 export default MovieCard;

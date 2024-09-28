@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchMoviesByquntity } from "../../services/getMovies";
-import { Link } from "react-router-dom";
 import MovieCard from "../movieCard/MovieCard";
 
 const HomeMovies = () => {
-  const [movies, setmovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +11,7 @@ const HomeMovies = () => {
     const getMovies = async () => {
       try {
         const movieData = await fetchMoviesByquntity();
-        setmovies(movieData);
+        setMovies(movieData);
       } catch (err) {
         setError("Failed to fetch movies");
       } finally {
@@ -21,6 +20,15 @@ const HomeMovies = () => {
     };
     getMovies();
   }, []);
+
+  if (loading) {
+    return <p className="text-center">Loading movies...</p>;
+  }
+
+  if (error) {
+    return <p className="text-center text-red-500">{error}</p>;
+  }
+
   return (
     <>
       <div className="flex justify-start m-4 flex-col">
@@ -38,3 +46,5 @@ const HomeMovies = () => {
 };
 
 export default HomeMovies;
+
+/***/

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const { id } = useParams();
-  const [movieDetils, setMovieDetails] = useState([]);
+  const [movieDetails, setMovieDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -29,36 +29,36 @@ const MovieDetails = () => {
     <>
       <div
         className="flex flex-col justify-center items-center  m-10 p-10 gap-2 h-screen"
-        key={movieDetils.id}
+        key={movieDetails.id}
       >
         <img
           className="w-full h-80 object-cover md:h-96 lg:h-2/3 rounded-lg shadow-lg"
-          src={`https://image.tmdb.org/t/p/original/${movieDetils.backdrop_path}`}
-          alt={movieDetils.original_title}
+          src={`https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`}
+          alt={movieDetails.original_title}
         />
 
         <h2 className="text-2xl font-semibold text-center mt-4">
-          {movieDetils.original_title}
+          {movieDetails.original_title}
         </h2>
 
         <p className="w-full max-w-3xl text-center text-gray-700 leading-relaxed">
           <span className="font-semibold">Overview : </span>
-          {movieDetils.overview}
+          {movieDetails.overview}
         </p>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Runtime : </span>
-          {movieDetils.runtime} minutes
+          {movieDetails.runtime} minutes
         </h3>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Popularity : </span>
-          {movieDetils.popularity}
+          {movieDetails.popularity}
         </h3>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Vote Average : </span>
-          {movieDetils.vote_average}
+          {movieDetails.vote_average}
         </h3>
       </div>
     </>
