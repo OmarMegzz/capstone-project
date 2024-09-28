@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { fetchMoviesDetails } from "../../services/getMovies";
+import { fetchTvDetails } from "../../services/getTvShows";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-const MovieDetails = () => {
+const TvDetails = () => {
   const { id } = useParams();
-  const [movieDetails, setMovieDetails] = useState([]);
+  const [seriesDetails, setSeriesDetails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const movieDetails = async () => {
+    const seriesDetails = async () => {
       try {
-        const movieDetailsData = await fetchMoviesDetails(id);
-        setMovieDetails(movieDetailsData);
+        const seriesDetailsData = await fetchTvDetails(id);
+
+        setSeriesDetails(seriesDetailsData);
       } catch (err) {
         setError("Failed to fetch movies details");
       } finally {
         setLoading(false);
       }
     };
-    movieDetails();
+    seriesDetails();
   }, [id]);
 
   if (loading) return <p>Loading...</p>;
@@ -29,44 +30,39 @@ const MovieDetails = () => {
   return (
     <>
       <Helmet>
-        <title>Movie Details</title>
+        <title>Tv Shows Details</title>
       </Helmet>
       <div
         className="flex flex-col justify-center items-center  m-10 p-10 gap-2 h-screen"
-        key={movieDetails.id}
+        key={seriesDetails.id}
       >
         <img
           className="w-full h-80 object-fit md:h-96 lg:h-2/3 rounded-lg shadow-lg"
-          src={`https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`}
-          alt={movieDetails.original_title}
+          src={`https://image.tmdb.org/t/p/original/${seriesDetails.backdrop_path}`}
+          alt={seriesDetails.name}
         />
 
         <h2 className="text-2xl font-semibold text-center mt-4">
-          {movieDetails.original_title}
+          {seriesDetails.name}
         </h2>
-
-        <p className="w-full max-w-3xl text-center text-gray-700 leading-relaxed">
-          <span className="font-semibold">Overview : </span>
-          {movieDetails.overview}
-        </p>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Runtime : </span>
-          {movieDetails.runtime} minutes
+          {seriesDetails.runtime} minutes
         </h3>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Popularity : </span>
-          {movieDetails.popularity}
+          {seriesDetails.popularity}
         </h3>
 
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Vote Average : </span>
-          {movieDetails.vote_average}
+          {seriesDetails.vote_average}
         </h3>
       </div>
     </>
   );
 };
 
-export default MovieDetails;
+export default TvDetails;
