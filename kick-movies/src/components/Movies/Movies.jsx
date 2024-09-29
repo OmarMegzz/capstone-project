@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { fetchMovies } from "../../services/getMovies";
 import { Link } from "react-router-dom";
 import MovieCard from "../movieCard/MovieCard";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -38,9 +39,11 @@ function Movies() {
 
   return (
     <>
-      <Helmet>
-        <title>Movies</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>Movies</title>
+        </Helmet>
+      </HelmetProvider>
 
       <div className="movie-list my-8 w-full py-8 flex flex-col items-center">
         <div className="py-8">

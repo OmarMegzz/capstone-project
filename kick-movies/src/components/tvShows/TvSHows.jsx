@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FetchTvShows } from "../../services/getTvShows";
 import { TvShowCard } from "../tvShowCard/TvShowCard";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function TvShows() {
   const [shows, setshows] = useState([]);
@@ -36,9 +36,11 @@ function TvShows() {
 
   return (
     <>
-      <Helmet>
-        <title>Tv Show</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>Tv Show</title>
+        </Helmet>
+      </HelmetProvider>
       <div className="movie-list my-8 w-full py-8 flex flex-col items-center">
         <div className="py-8">
           <h1 className="text-2xl md:text-4xl font-bold text-center">

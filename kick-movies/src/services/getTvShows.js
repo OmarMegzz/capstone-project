@@ -53,3 +53,17 @@ export const fetchTvByquntity = async () => {
     throw error;
   }
 };
+
+export const fetchTvCredits = async (Tv_id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/tv/${Tv_id}/credits`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    return response.data.cast;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};

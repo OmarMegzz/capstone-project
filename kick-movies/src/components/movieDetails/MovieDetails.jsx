@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchMoviesDetails } from "../../services/getMovies";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import MovieCredits from "../credits/MovieCredits";
+import { HelmetProvider } from "react-helmet-async";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -28,9 +30,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Movie Details</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>Movie Details</title>
+        </Helmet>
+      </HelmetProvider>
       <div
         className="flex flex-col justify-center items-center  m-10 p-10 gap-2 h-screen"
         key={movieDetails.id}
@@ -65,6 +69,7 @@ const MovieDetails = () => {
           {movieDetails.vote_average}
         </h3>
       </div>
+      <MovieCredits />
     </>
   );
 };

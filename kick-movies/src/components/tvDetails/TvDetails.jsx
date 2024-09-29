@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchTvDetails } from "../../services/getTvShows";
 import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
+import TvCredits from "../credits/TvCredits";
 
 const TvDetails = () => {
   const { id } = useParams();
@@ -29,9 +31,11 @@ const TvDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Tv Shows Details</title>
-      </Helmet>
+      <HelmetProvider>
+        <Helmet>
+          <title>Tv Shows Details</title>
+        </Helmet>
+      </HelmetProvider>
       <div
         className="flex flex-col justify-center items-center  m-10 p-10 gap-2 h-screen"
         key={seriesDetails.id}
@@ -61,6 +65,7 @@ const TvDetails = () => {
           {seriesDetails.vote_average}
         </h3>
       </div>
+      <TvCredits />
     </>
   );
 };

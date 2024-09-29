@@ -10,7 +10,6 @@ import {
 import Layout from "./components/Layout/Layout.jsx";
 import Movies from "./components/Movies/Movies.jsx";
 import Home from "./components/Home/Home.jsx";
-import AboutUs from "./components/About/AboutUs.jsx";
 import MovieDetails from "./components/movieDetails/MovieDetails.jsx";
 import TvSHows from "./components/tvShows/TvSHows.jsx";
 import TvDetails from "./components/tvDetails/TvDetails.jsx";
@@ -23,7 +22,6 @@ const router = createBrowserRouter(
       <Route path="movies/:id" element={<MovieDetails />} />
       <Route path="TvShows" element={<TvSHows />} />
       <Route path="TvShows/:id" element={<TvDetails />} />
-      <Route path="about" element={<AboutUs />} />
     </Route>
   )
 );
