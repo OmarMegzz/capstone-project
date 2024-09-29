@@ -54,6 +54,13 @@ const MovieDetails = () => {
           {movieDetails.overview}
         </p>
 
+        <p className=" flex justify-center gap-x-1 items-center w-full max-w-3xl text-center text-gray-700 leading-relaxed">
+          <span className="font-semibold">Geners : </span>
+          {movieDetails.genres.map((genere) => (
+            <p key={genere.id}>{genere.name}</p>
+          ))}
+        </p>
+
         <h3 className="text-lg text-gray-600 mt-2">
           <span className="font-semibold">Runtime : </span>
           {movieDetails.runtime} minutes
