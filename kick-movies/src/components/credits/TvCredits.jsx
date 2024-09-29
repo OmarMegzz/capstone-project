@@ -19,11 +19,11 @@ const TvCredits = () => {
     <>
       <div className="flex  justify-center items-center w-full h-full gap-8 flex-col p-4 md:p-8">
         <div>
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold">
+          <h1 className=" flex justify-center items-center text-2xl md:text-2xl lg:text-3xl font-semibold">
             Cast
           </h1>
         </div>
-        <div className="flex flex-wrap justify-center md:justify-between items-center w-full gap-4 md:gap-8 p-4 md:p-8">
+        <div className="flex flex-wrap justify-center items-center w-full gap-4 md:gap-8 p-4 md:p-8">
           {Tvcasts.map((TvCast) => (
             <div
               className="w-full md:w-1/3 lg:w-1/4 flex justify-between items-center flex-col gap-4 p-4"

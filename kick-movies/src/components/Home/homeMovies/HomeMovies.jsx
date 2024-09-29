@@ -31,11 +31,11 @@ const HomeMovies = () => {
 
   return (
     <>
-      <div className="flex justify-start m-4 flex-col">
-        <div>
-          <h2 className="text-2xl font-bold"> Movies</h2>
+      <div className="flex flex-col m-4 gap-8">
+        <div className="mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold">Movies</h2>
         </div>
-        <div className="h- flex justify-evenly   p-4 m-4 ">
+        <div className="flex flex-wrap justify-center gap-4 p-4">
           {movies.map((movie) => (
             <MovieCard key={movie.id} to={`movies/${movie.id}`} movie={movie} />
           ))}

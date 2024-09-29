@@ -44,12 +44,11 @@ function Movies() {
           <title>Movies</title>
         </Helmet>
       </HelmetProvider>
-
       <div className="movie-list my-8 w-full py-8 flex flex-col items-center">
-        <div className="py-8">
+        <div className="py-4 md:py-8">
           <h1 className="text-2xl md:text-4xl font-bold text-center">Movies</h1>
         </div>
-        <div className="w-full px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+        <div className="w-full px-2 sm:px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 justify-items-center">
           {movies.map((movie) => (
             <MovieCard to={`${movie.id}`} key={movie.id} movie={movie} />
           ))}

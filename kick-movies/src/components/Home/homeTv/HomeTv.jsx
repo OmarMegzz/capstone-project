@@ -36,11 +36,11 @@ function HomeTv() {
     );
   return (
     <>
-      <div className="flex justify-start m-4 flex-col">
-        <div>
-          <h2 className="text-2xl font-bold">Tv Show</h2>
+      <div className="flex flex-col m-4 gap-8">
+        <div className="mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold">TV Show</h2>
         </div>
-        <div className="h- flex justify-evenly   p-4 m-4 ">
+        <div className="flex flex-wrap justify-center gap-4 p-4 bg-gray-100 rounded-lg">
           {shows.map((show) => (
             <TvShowCard key={show.id} to={`tvShows/${show.id}`} tv={show} />
           ))}
