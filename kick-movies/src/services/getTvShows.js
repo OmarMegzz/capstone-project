@@ -42,7 +42,7 @@ export const fetchTvByquntity = async () => {
       {
         params: {
           api_key: API_KEY,
-          page: 2,
+          page: 1,
         },
       }
     );

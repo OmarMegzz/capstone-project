@@ -5,16 +5,12 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchMovies = async () => {
   try {
-    const response = await axios.get(
-      `${BASE_URL}/discover/movie
-`,
-      {
-        params: {
-          api_key: API_KEY,
-          page: 1,
-        },
-      }
-    );
+    const response = await axios.get(`${BASE_URL}/discover/movie`, {
+      params: {
+        api_key: API_KEY,
+        page: 1,
+      },
+    });
 
     return response.data.results;
   } catch (error) {
@@ -46,7 +42,7 @@ export const fetchMoviesByquntity = async () => {
       {
         params: {
           api_key: API_KEY,
-          page: 2,
+          page: 1,
         },
       }
     );

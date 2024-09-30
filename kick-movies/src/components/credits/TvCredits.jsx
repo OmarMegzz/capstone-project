@@ -38,9 +38,8 @@ const TvCredits = () => {
                 </h2>
               </div>
               <img
-                className="w-32 h-48 md:w-48 md:h-64 lg:w-56 lg:h-72 object-cover rounded-lg shadow-lg"
+                className="w-32 h-48 md:w-48 md:h-64 lg:w-56 lg:h-72 object-cover rounded-full shadow-lg"
                 src={`https://image.tmdb.org/t/p/original/${TvCast.profile_path}`}
-                alt={TvCast.name}
               />
             </div>
           ))}

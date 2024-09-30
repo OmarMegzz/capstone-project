@@ -13,6 +13,7 @@ import Home from "./components/Home/Home.jsx";
 import MovieDetails from "./components/movieDetails/MovieDetails.jsx";
 import TvSHows from "./components/tvShows/TvSHows.jsx";
 import TvDetails from "./components/tvDetails/TvDetails.jsx";
+import SearchPage from "./components/searchPage/searchPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="movies/:id" element={<MovieDetails />} />
       <Route path="TvShows" element={<TvSHows />} />
       <Route path="TvShows/:id" element={<TvDetails />} />
+      <Route path="search/:searchQuery" element={<SearchPage />} />
     </Route>
   )
 );
