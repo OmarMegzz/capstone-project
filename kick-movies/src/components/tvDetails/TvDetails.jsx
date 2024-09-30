@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { HelmetProvider } from "react-helmet-async";
 import TvCredits from "../credits/TvCredits";
+import Rating from "../Rating/Rating";
 
 const TvDetails = () => {
   const { id } = useParams();
@@ -73,6 +74,8 @@ const TvDetails = () => {
         </h3>
       </div>
       <TvCredits />
+
+      <Rating searchQuery={seriesDetails.name} />
     </>
   );
 };
