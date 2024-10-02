@@ -7,9 +7,10 @@ function SearchInput() {
   const [searchQuery, setsearchQuery] = useState("");
 
   const navigate = useNavigate();
-  const handleSearch = async () => {
-    if (!searchQuery) return;
 
+  const handleSearch = () => {
+    if (!searchQuery) return;
+    setsearchQuery("");
     navigate(`/search/${searchQuery}`);
   };
 
@@ -29,6 +30,7 @@ function SearchInput() {
             placeholder="Search"
             onChange={(e) => setsearchQuery(e.target.value)}
             onKeyDown={handleKeyDown}
+            value={searchQuery}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <i className="fas fa-search text-black"></i>
