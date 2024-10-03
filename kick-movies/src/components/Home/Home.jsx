@@ -1,5 +1,5 @@
 import React from "react";
-import MySwiperComponent from "../slider/MySwiperComponent";
+import MySwiper from "../slider/MySwiper";
 import HomeMovies from "./homeMovies/HomeMovies";
 import HomeTv from "./homeTv/HomeTv";
 import { Helmet } from "react-helmet-async";
@@ -13,7 +13,7 @@ function Home() {
           <title>Home</title>
         </Helmet>
       </HelmetProvider>
-      <MySwiperComponent />
+      <MySwiper />
 
       <HomeMovies />
 

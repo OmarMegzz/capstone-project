@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { fetchMovies } from "../../services/getMovies";
 
-export default function MySwiperComponent() {
+export default function MySwiper() {
   const [slider, setslider] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
