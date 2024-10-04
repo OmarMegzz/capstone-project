@@ -9,7 +9,7 @@ function NavBar() {
         <Link to="/" className="flex items-center">
           <img
             className="w-14 h-12 rounded-lg"
-            src="public/Kick.svg"
+            src="src/assets/Kick.svg"
             alt="logo"
           />
         </Link>
