@@ -31,7 +31,7 @@ function Footer() {
 
       <div className="text-center mt-8">
         <p className="text-gray-400">
-          &copy; 2024 Company Name. All Rights Reserved.
+          &copy; 2024 Kick Movies. All Rights Reserved.
         </p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchMoviesByquntity } from "../../../services/getMovies";
 import MovieCard from "../../movieCard/MovieCard";
+import HomeCard from "../HomeCard/HomeCard";
 
 const HomeMovies = () => {
   const [movies, setMovies] = useState([]);
@@ -36,9 +37,7 @@ const HomeMovies = () => {
           <h2 className="text-2xl md:text-3xl font-bold">Movies</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-4 p-4">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} to={`movies/${movie.id}`} movie={movie} />
-          ))}
+          <HomeCard homeData={movies} />
         </div>
       </div>
     </>
@@ -47,4 +46,8 @@ const HomeMovies = () => {
 
 export default HomeMovies;
 
-/***/
+/** 
+ *   {movies.map((movie) => (
+            <MovieCard key={movie.id} to={`movies/${movie.id}`} movie={movie} />
+          ))}
+*/

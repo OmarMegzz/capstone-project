@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TvShowCard } from "../../tvShowCard/TvShowCard";
 import { fetchMoviesByquntity } from "../../../services/getMovies";
 import { fetchTvByquntity } from "../../../services/getTvShows";
+import HomeCard from "../HomeCard/HomeCard";
 
 function HomeTv() {
   const [shows, setshows] = useState([]);
@@ -41,9 +42,7 @@ function HomeTv() {
           <h2 className="text-2xl md:text-3xl font-bold">TV Show</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-4 p-4 bg-gray-100 rounded-lg">
-          {shows.map((show) => (
-            <TvShowCard key={show.id} to={`tvShows/${show.id}`} tv={show} />
-          ))}
+          <HomeCard homeData={shows} />
         </div>
       </div>
     </>
