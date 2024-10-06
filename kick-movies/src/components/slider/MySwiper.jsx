@@ -61,7 +61,7 @@ export default function MySwiper() {
               className="h-2/6 m-auto object-fill"
             />
             <h2 className="flex justify-center items-center flex-col font-bold text-2xl">
-              {slide.original_title} // Movie title
+              {slide.original_title}
             </h2>
           </SwiperSlide>
         ))}
