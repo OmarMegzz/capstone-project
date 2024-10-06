@@ -7,28 +7,31 @@ import TvCredits from "../credits/TvCredits";
 import Rating from "../Rating/Rating";
 
 const TvDetails = () => {
-  const { id } = useParams();
-  const [seriesDetails, setSeriesDetails] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { id } = useParams(); // Extracting id from the URL parameters
+
+  const [seriesDetails, setSeriesDetails] = useState([]); // State for TV show details
+
+  const [loading, setLoading] = useState(true); // State for loading status
+
+  const [error, setError] = useState(null); // State for error handling
 
   useEffect(() => {
     const seriesDetails = async () => {
       try {
-        const seriesDetailsData = await fetchTvDetails(id);
+        const seriesDetailsData = await fetchTvDetails(id); // Fetching TV show details
 
-        setSeriesDetails(seriesDetailsData);
+        setSeriesDetails(seriesDetailsData); // Updating state with fetched data
       } catch (err) {
-        setError("Failed to fetch movies details");
+        setError("Failed to fetch movies details"); // Setting error message
       } finally {
-        setLoading(false);
+        setLoading(false); // Setting loading to false
       }
     };
-    seriesDetails();
-  }, [id]);
+    seriesDetails(); // Calling the fetch function
+  }, [id]); // Dependency on id
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p>Loading...</p>; // Loading state
+  if (error) return <p>{error}</p>; // Error state
 
   return (
     <>
@@ -56,10 +59,10 @@ const TvDetails = () => {
           {seriesDetails.runtime} minutes
         </h3>
 
-        <div className=" flex justify-center gap-x-1 items-center w-full max-w-3xl text-center text-gray-700 leading-relaxed">
-          <span className="font-semibold">Geners : </span>
-          {seriesDetails.genres.map((genere) => (
-            <p key={genere.id}>{genere.name}</p>
+        <div className="flex justify-center gap-x-1 items-center w-full max-w-3xl text-center text-gray-700 leading-relaxed">
+          <span className="font-semibold">Genres : </span>
+          {seriesDetails.genres.map((genre) => (
+            <p key={genre.id}>{genre.name}</p>
           ))}
         </div>
 
@@ -74,7 +77,6 @@ const TvDetails = () => {
         </h3>
       </div>
       <TvCredits />
-
       <Rating searchQuery={seriesDetails.name} />
     </>
   );

@@ -4,29 +4,36 @@ import { TvShowCard } from "../tvShowCard/TvShowCard";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 function TvShows() {
-  const [shows, setshows] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [shows, setshows] = useState([]); // State to store fetched TV shows
+
+  const [loading, setLoading] = useState(true); // State to track loading status
+
+  const [error, setError] = useState(null); // State to store any error messages
+
   useEffect(() => {
     const getTvShows = async () => {
       try {
-        const tvShowsData = await FetchTvShows();
-        setshows(tvShowsData);
+        const tvShowsData = await FetchTvShows(); // Fetch the data
+
+        setshows(tvShowsData); // Update the state with fetched data
       } catch (err) {
-        setError("Failed to fetch movies");
+        setError("Failed to fetch movies"); // Update error state with a message
       } finally {
-        setLoading(false);
+        setLoading(false); // Update loading state to false
       }
     };
     getTvShows();
   }, []);
 
+  // If loading, show loading message
   if (loading)
     return (
       <p className="flex justify-center items-center w-full h-screen">
         Loading...
       </p>
     );
+
+  // If there is an error, display the error message
   if (error)
     return (
       <p className="flex justify-center items-center w-full h-screen">
@@ -57,4 +64,4 @@ function TvShows() {
   );
 }
 
-export default TvShows;
+export default TvShows; // Export the TvShows component for use in other parts of the application

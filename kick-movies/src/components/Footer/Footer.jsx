@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
+    // Container for the Footer component
     <div className="text-white  bg-gray-600 flex justify-center items-center flex-col  w-full h-2/5 p-8 ">
       <div>
         <Link to="/">

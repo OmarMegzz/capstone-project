@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 function Layout() {
   return (
     <>
+      {/*layOut for routing */}
       <NavBar />
       <Outlet />
       <Footer />

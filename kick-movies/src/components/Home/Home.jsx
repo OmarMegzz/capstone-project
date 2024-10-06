@@ -8,15 +8,20 @@ import { HelmetProvider } from "react-helmet-async";
 function Home() {
   return (
     <div className="h-full">
+      {/* Provide a context for using React Helmet, which helps manage the document head */}
       <HelmetProvider>
         <Helmet>
           <title>Home</title>
         </Helmet>
       </HelmetProvider>
+
+      {/* Carousel/Slider Component */}
       <MySwiper />
 
+      {/* Movies Section */}
       <HomeMovies />
 
+      {/* TV Shows Section */}
       <HomeTv />
     </div>
   );

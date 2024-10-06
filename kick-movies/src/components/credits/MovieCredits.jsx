@@ -4,12 +4,19 @@ import { fetchMovieCredits } from "../../services/getMovies";
 import { useParams } from "react-router-dom";
 
 const MovieCredits = () => {
+  // Extract movie ID from the URL parameters
   const { id } = useParams();
+
+  // State to store movie cast information
   const [moviecasts, setMovieCasts] = useState([]);
 
+  // Fetch movie credits whenever the component mounts or the ID changes
   useEffect(() => {
     const getMovieCasts = async () => {
+      // Fetch movie cast data using the provided ID
       const moviecastData = await fetchMovieCredits(id);
+
+      // Update the state with the fetched movie cast data
       setMovieCasts(moviecastData);
     };
     getMovieCasts();

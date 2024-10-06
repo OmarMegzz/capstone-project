@@ -4,16 +4,18 @@ import { fetchSearchAll } from "../../services/getSearch";
 import { useParams } from "react-router-dom";
 
 function SearchPage() {
-  const { searchQuery } = useParams();
-  const [results, setResults] = useState([]);
+  const { searchQuery } = useParams(); // Extract searchQuery from URL parameters
+
+  const [results, setResults] = useState([]); // State to hold search results
 
   useEffect(() => {
     const handleSearch = async () => {
-      const searchData = await fetchSearchAll(searchQuery);
-      setResults(searchData);
+      const searchData = await fetchSearchAll(searchQuery); // Fetch search results
+
+      setResults(searchData); // Update state with results
     };
-    handleSearch();
-  }, [searchQuery]);
+    handleSearch(); // Call the search function
+  }, [searchQuery]); // Dependency array to re-run when searchQuery changes
 
   return (
     <>

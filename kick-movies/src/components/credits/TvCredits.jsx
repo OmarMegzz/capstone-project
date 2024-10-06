@@ -4,12 +4,19 @@ import { useParams } from "react-router-dom";
 import { fetchTvCredits } from "../../services/getTvShows";
 
 const TvCredits = () => {
+  // Extract TV show ID from the URL parameters
   const { id } = useParams();
+
+  // State to store TV cast information
   const [Tvcasts, setTvCasts] = useState([]);
 
+  // Fetch TV credits whenever the component mounts or the ID changes
   useEffect(() => {
     const getTvCasts = async () => {
+      // Fetch TV cast data using the provided ID
       const TvcastData = await fetchTvCredits(id);
+
+      // Update the state with the fetched TV cast data
       setTvCasts(TvcastData);
     };
     getTvCasts();

@@ -2,26 +2,28 @@ import React, { useEffect, useState } from "react";
 import { getRtaings } from "../../services/getRtaings";
 
 const Rating = ({ searchQuery }) => {
-  const [ratings, setRatings] = useState([]);
-  const [error, setError] = useState(null);
+  const [ratings, setRatings] = useState([]); // State to store ratings
+
+  const [error, setError] = useState(null); // State to store error messages
 
   useEffect(() => {
     const fetchRatingData = async () => {
       try {
-        const ratingData = await getRtaings(searchQuery);
-        setRatings(ratingData);
+        const ratingData = await getRtaings(searchQuery); // Fetch ratings based on the search query
+
+        setRatings(ratingData); // Set ratings data in state
       } catch (err) {
-        setError("Failed to fetch ratings. Please try again later.");
+        setError("Failed to fetch ratings. Please try again later."); // Handle errors
       }
     };
     fetchRatingData();
-  }, [searchQuery]);
+  }, [searchQuery]); // Dependency array to re-fetch ratings when searchQuery changes
 
   return (
     <>
-      <div className=" w-full h-full m-4 p-4 ">
+      <div className="w-full h-full m-4 p-4">
         <div className="flex justify-center items-center m-8 p-8">
-          <h2 className="font-semibold text-2xl ">Rating</h2>
+          <h2 className="font-semibold text-2xl">Rating</h2>{" "}
         </div>
         {error ? (
           <div className="text-red-500 text-center">{error}</div>
