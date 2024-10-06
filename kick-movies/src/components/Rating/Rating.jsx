@@ -21,7 +21,7 @@ const Rating = ({ searchQuery }) => {
 
   return (
     <>
-      <div className="w-full h-full m-4 p-4">
+      <div className="w-full h-full  p-4">
         <div className="flex justify-center items-center m-8 p-8">
           <h2 className="font-semibold text-2xl">Rating</h2>{" "}
         </div>

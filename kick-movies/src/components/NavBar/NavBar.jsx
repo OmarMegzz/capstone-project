@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="bg-gray-600 flex justify-evenly items-center p-3 content-center">
+    <div className="bg-gray-600 flex justify-evenly items-center px-5 py-4  content-center">
       <div className="w-full flex justify-evenly items-center">
         <Link to="/" className="flex items-center">
           <img

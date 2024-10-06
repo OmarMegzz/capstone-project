@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "../movieCard/MovieCard";
 import { fetchSearchAll } from "../../services/getSearch";
 import { useParams } from "react-router-dom";
+import HomeCard from "../Home/HomeCard/HomeCard";
 
 function SearchPage() {
   const { searchQuery } = useParams(); // Extract searchQuery from URL parameters
@@ -20,13 +21,7 @@ function SearchPage() {
   return (
     <>
       <div className="flex justify-center items-center flex-wrap gap-4 p-4 m-4">
-        {results.map((result) => (
-          <MovieCard
-            key={result.id}
-            movie={result}
-            to={`/movies/${result.id}`}
-          />
-        ))}
+        <HomeCard homeData={results} card={<MovieCard />} />
       </div>
     </>
   );

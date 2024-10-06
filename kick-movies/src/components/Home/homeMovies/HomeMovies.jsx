@@ -30,7 +30,6 @@ const HomeMovies = () => {
     return <p className="text-center text-red-500">{error}</p>;
   }
 
-  console.log("🚀 ~ HomeMovies ~ movies:", movies);
   return (
     <>
       <div className="flex flex-col m-4 gap-8">

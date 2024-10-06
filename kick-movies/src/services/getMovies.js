@@ -74,6 +74,5 @@ export const fetchMovieCredits = async (movie_id) => {
   } catch (error) {
     // Log the error and rethrow it for handling in the calling function
     console.error("Error fetching data:", error);
-    throw error;
   }
 };

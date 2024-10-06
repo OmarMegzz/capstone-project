@@ -6,7 +6,7 @@ export const TvShowCard = ({ tv, to }) => {
   const { cardData } = useHomeCardContext();
 
   return (
-    <Link key={cardData.id} to={`tvShows/${cardData.id}`}>
+    <Link key={cardData.id} to={`/tvShows/${cardData.id}`}>
       <div className="transform transition-transform duration-300 content-center hover:scale-105 focus:scale-105 shadow-lg w-56 h-full border rounded-lg p-4">
         <img
           src={`https://image.tmdb.org/t/p/original/${cardData.poster_path}`}
