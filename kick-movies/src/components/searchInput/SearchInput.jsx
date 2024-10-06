@@ -32,7 +32,7 @@ function SearchInput() {
             value={searchQuery}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <i className="fas fa-search text-black"></i>{" "}
+            <i className="fas fa-search text-black"></i>
           </div>
         </div>
         <button

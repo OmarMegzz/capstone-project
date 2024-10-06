@@ -1,12 +1,15 @@
 import React from "react";
 import { TvShowCard } from "../../tvShowCard/TvShowCard";
+import MovieCard from "../../movieCard/MovieCard";
+import { HomeCardContextProvider } from "./HomeCardContext";
 
-const HomeCard = ({ homeData }) => {
+const HomeCard = ({ homeData, card }) => {
   return (
     <>
-      {/* Map through homeData to render TvShowCard components for each TV show */}
       {homeData.map((hd) => (
-        <TvShowCard key={hd.id} to={`tvShows/${hd.id}`} tv={hd} />
+        <HomeCardContextProvider key={hd.id} cardInfo={hd}>
+          {card}
+        </HomeCardContextProvider>
       ))}
     </>
   );

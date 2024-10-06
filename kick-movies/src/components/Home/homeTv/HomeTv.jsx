@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { TvShowCard } from "../../tvShowCard/TvShowCard";
-import { fetchMoviesByquntity } from "../../../services/getMovies";
-import { fetchTvByquntity } from "../../../services/getTvShows";
 import HomeCard from "../HomeCard/HomeCard";
+import { fetchTvByquntity } from "../../../services/getTvShows";
+import { TvShowCard } from "../../tvShowCard/TvShowCard";
 
 function HomeTv() {
   // State to store TV show data
@@ -58,7 +57,7 @@ function HomeTv() {
 
         {/* Container to display the list of TV show cards */}
         <div className="flex flex-wrap justify-center gap-4 p-4 bg-gray-100 rounded-lg">
-          <HomeCard homeData={shows} />
+          <HomeCard homeData={shows} card={<TvShowCard />} />
         </div>
       </div>
     </>

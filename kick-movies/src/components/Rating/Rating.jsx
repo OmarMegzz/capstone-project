@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRtaings } from "../../services/getRtaings";
+import { getRatings } from "../../services/getRtaings";
 
 const Rating = ({ searchQuery }) => {
   const [ratings, setRatings] = useState([]); // State to store ratings
@@ -9,7 +9,7 @@ const Rating = ({ searchQuery }) => {
   useEffect(() => {
     const fetchRatingData = async () => {
       try {
-        const ratingData = await getRtaings(searchQuery); // Fetch ratings based on the search query
+        const ratingData = await getRatings(searchQuery); // Fetch ratings based on the search query
 
         setRatings(ratingData); // Set ratings data in state
       } catch (err) {
