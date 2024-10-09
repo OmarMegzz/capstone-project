@@ -31,7 +31,7 @@ const MovieCredits = () => {
           </h1>
         </div>
         <div className="flex flex-wrap justify-center  items-center w-full gap-4 md:gap-8 p-4 md:p-8">
-          {moviecasts.map((cast) => (
+          {moviecasts?.map((cast) => (
             <div
               className="w-full md:w-1/3 lg:w-1/4 flex justify-between items-center flex-col gap-4 p-4"
               key={cast.id}

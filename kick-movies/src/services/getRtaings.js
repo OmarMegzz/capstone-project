@@ -13,7 +13,10 @@ export const getRatings = async (query) => {
     // Return the ratings array from the response data
     return response.data.Ratings;
   } catch (error) {
-    console.error("Error fetching ratings:", error);
-    throw error;
+    if (error.response && error.response.status === 404) {
+      console.error("Movie not found!");
+    } else {
+      console.error("An error occurred:", error);
+    }
   }
 };

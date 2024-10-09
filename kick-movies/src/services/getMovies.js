@@ -72,7 +72,10 @@ export const fetchMovieCredits = async (movie_id) => {
     // Return the cast array from the response data
     return response.data.cast;
   } catch (error) {
-    // Log the error and rethrow it for handling in the calling function
-    console.error("Error fetching data:", error);
+    if (error.response && error.response.status === 404) {
+      console.error("Movie not found!");
+    } else {
+      console.error("An error occurred:", error);
+    }
   }
 };
